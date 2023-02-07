@@ -2,7 +2,9 @@
 Independent research project under faculty guidance
 
 Professors:
+
 Christos Athanasiou - https://www.ceathanasiou.com/
+
 Elizabeth Qian - https://www.elizabethqian.com/
 
 
