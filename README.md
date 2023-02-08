@@ -20,8 +20,12 @@ Faculty mentored research project aiming to provide ML alternative to computatio
 
 ### File organization
 |-main.py (Main file with the core function calls and hyperparameter definition)
+|
 |-- data_func.py (File with functions/classes relevant to pre-processing of the data)
 |-- epoch_func.py (File with functions/classes relevant to epoch-specific steps, example: training, testing, early-stopping, etc.)
+|
 |-- loss_func.py (File with functions/classes relevant to calculating different loss/accuracy criteria)
+|
 |-- model_func.py (File with functions/classes relevant to pre-defined neural network structures)
+|
 |-- post_func.py (File with functions/classes relevant to post-processing of data, example: plotting loss curves, accuracy curves, etc.)
