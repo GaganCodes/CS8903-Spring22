@@ -25,4 +25,4 @@ Faculty mentored research project aiming to provide ML alternative to computatio
 |-- loss_func.py (File with functions/classes relevant to calculating different loss/accuracy criteria)  
 |-- model_func.py (File with functions/classes relevant to pre-defined neural network structures)  
 |-- post_func.py (File with functions/classes relevant to post-processing of data, example: plotting loss curves, accuracy curves, etc.)
-
+|-- setup.py (File with relevant info for running the *.py files)
