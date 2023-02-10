@@ -6,16 +6,15 @@ import torch.nn as nn
 
 #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # Classes/functions specific to defining model
-class NeuralNetwork_8_8(nn.Module):
-    def __init__(self) -> None:
-        super(NeuralNetwork_8_8, self).__init__()
-        self.linear_relu_stack = nn.Sequential(
-                                            nn.Linear(4, 8),
-                                            nn.ReLU(),
-                                            nn.Linear(8, 8),
-                                            nn.ReLU(),
-                                            nn.Linear(8, 1)
-        )
+class NeuralNetwork_1(nn.Module):
+    '''
+    Neural network with one hidden layer and ReLU activation layer.
+    '''
+    def __init__(self, num_input=4, num_hidden=8) -> None:
+        super(NeuralNetwork_1, self).__init__()
+        self.layer_1 = nn.Linear(num_input, num_hidden)
+        self.activation_1 = nn.ReLU()
+        self.output = nn.Linear(num_hidden,1)
 
         # For tracking metrics like loss, accuracy, etc for each phase
         # Kept two for now, can be modified
@@ -25,22 +24,26 @@ class NeuralNetwork_8_8(nn.Module):
         self.val_score_metric_2 = list()
         self.test_score_metric_1 = list()
         self.test_score_metric_2 = list()
-        self.name = "4x8x8x1"
+        self.name = "{}x{}x1".format(num_input, num_hidden)
     
     def forward(self, x):
         # Defining forward pass for the NN
-        return self.linear_relu_stack(x)
+        z1 = self.layer_1(x)
+        a1 = self.activation_1(z1)
+        z2 = self.output(a1)
+        return z2
 
-class NeuralNetwork_16_16(nn.Module):
-    def __init__(self) -> None:
-        super(NeuralNetwork_8_8, self).__init__()
-        self.linear_relu_stack = nn.Sequential(
-                                            nn.Linear(4, 16),
-                                            nn.ReLU(),
-                                            nn.Linear(16, 16),
-                                            nn.ReLU(),
-                                            nn.Linear(16, 1)
-        )
+class NeuralNetwork_2(nn.Module):
+    '''
+    Neural network with two hidden layers and ReLU activation layers.
+    '''
+    def __init__(self, num_input=4, num_hidden_1=8, num_hidden_2=8) -> None:
+        super(NeuralNetwork_2, self).__init__()
+        self.layer_1 = nn.Linear(num_input, num_hidden_1)
+        self.activation_1 = nn.ReLU()
+        self.layer_2 = nn.Linear(num_hidden_1, num_hidden_2)
+        self.activation_2 = nn.ReLU()
+        self.output = nn.Linear(num_hidden_2, 1)
 
         # For tracking metrics like loss, accuracy, etc for each phase
         # Kept two for now, can be modified
@@ -50,78 +53,12 @@ class NeuralNetwork_16_16(nn.Module):
         self.val_score_metric_2 = list()
         self.test_score_metric_1 = list()
         self.test_score_metric_2 = list()
-        self.name = "4x16x16x1"
+        self.name = "{}x{}x{}x1".format(num_input, num_hidden_1, num_hidden_2)
     
     def forward(self, x):
         # Defining forward pass for the NN
-        return self.linear_relu_stack(x)
-
-class NeuralNetwork_16(nn.Module):
-    def __init__(self) -> None:
-        super(NeuralNetwork_8_8, self).__init__()
-        self.linear_relu_stack = nn.Sequential(
-                                            nn.Linear(4, 16),
-                                            nn.ReLU(),
-                                            nn.Linear(16, 1)
-        )
-
-        # For tracking metrics like loss, accuracy, etc for each phase
-        # Kept two for now, can be modified
-        self.train_score_metric_1 = list()
-        self.train_score_metric_2 = list()
-        self.val_score_metric_1 = list()
-        self.val_score_metric_2 = list()
-        self.test_score_metric_1 = list()
-        self.test_score_metric_2 = list()
-        self.name = "4x16x1"
-    
-    def forward(self, x):
-        # Defining forward pass for the NN
-        return self.linear_relu_stack(x)
-
-class NeuralNetwork_32(nn.Module):
-    def __init__(self) -> None:
-        super(NeuralNetwork_8_8, self).__init__()
-        self.linear_relu_stack = nn.Sequential(
-                                            nn.Linear(4, 32),
-                                            nn.ReLU(),
-                                            nn.Linear(32, 1)
-        )
-
-        # For tracking metrics like loss, accuracy, etc for each phase
-        # Kept two for now, can be modified
-        self.train_score_metric_1 = list()
-        self.train_score_metric_2 = list()
-        self.val_score_metric_1 = list()
-        self.val_score_metric_2 = list()
-        self.test_score_metric_1 = list()
-        self.test_score_metric_2 = list()
-        self.name = "4x32x1"
-    
-    def forward(self, x):
-        # Defining forward pass for the NN
-        return self.linear_relu_stack(x)
-
-class NeuralNetwork_64(nn.Module):
-    def __init__(self) -> None:
-        super(NeuralNetwork_8_8, self).__init__()
-        self.linear_relu_stack = nn.Sequential(
-                                            nn.Linear(4, 64),
-                                            nn.ReLU(),
-                                            nn.Linear(64, 1)
-        )
-
-        # For tracking metrics like loss, accuracy, etc for each phase
-        # Kept two for now, can be modified
-        self.train_score_metric_1 = list()
-        self.train_score_metric_2 = list()
-        self.val_score_metric_1 = list()
-        self.val_score_metric_2 = list()
-        self.test_score_metric_1 = list()
-        self.test_score_metric_2 = list()
-        self.name = "4x64x1"
-    
-    def forward(self, x):
-        # Defining forward pass for the NN
-        return self.linear_relu_stack(x)
+        z1 = self.layer_1(x)
+        a1 = self.activation_1(z1)
+        z2 = self.output(a1)
+        return z2
 
