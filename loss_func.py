@@ -1,5 +1,17 @@
 """
-Add description of this file
+Author: Gagandeep Randhawa
+GaTech ID: grandhawa6
+Course: CS8903
+
+BSD 3-Clause License
+Copyright (c) 2023, Gagandeep Randhawa
+All rights reserved.
+
+https://github.com/GaganCodes/CS8903-Spring22/blob/main/LICENSE
+
+================
+File with functions/classes relevant to calculating different loss/accuracy criteria
+================
 """
 
 
@@ -28,8 +40,6 @@ def norm_pred_target(y_pred=None, y_true=None):
         norm_y = torch.div(y_true, y_true)
 
     return norm_pred, norm_y
-
-
 
 def mean_L1_loss(y_pred=None, y_true=None):
     loss_fn = nn.L1Loss()
