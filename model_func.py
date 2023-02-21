@@ -1,5 +1,17 @@
 """
-Add description of this file
+Author: Gagandeep Randhawa
+GaTech ID: grandhawa6
+Course: CS8903
+
+BSD 3-Clause License
+Copyright (c) 2023, Gagandeep Randhawa
+All rights reserved.
+
+https://github.com/GaganCodes/CS8903-Spring22/blob/main/LICENSE
+
+================
+File with functions/classes relevant to pre-defined neural network structures
+================
 """
 
 import torch.nn as nn
@@ -13,7 +25,7 @@ class NeuralNetwork_1(nn.Module):
     def __init__(self, num_input=4, num_hidden=8) -> None:
         super(NeuralNetwork_1, self).__init__()
         self.layer_1 = nn.Linear(num_input, num_hidden)
-        self.activation_1 = nn.LeakyReLU()
+        self.activation_1 = nn.ReLU()
         self.output = nn.Linear(num_hidden,1)
 
         # For tracking metrics like loss, accuracy, etc for each phase
@@ -28,6 +40,8 @@ class NeuralNetwork_1(nn.Module):
     
     def forward(self, x):
         # Defining forward pass for the NN
+        # Can be done in a line with torch.nn.Sequential
+        # Done this way for readability
         z1 = self.layer_1(x)
         a1 = self.activation_1(z1)
         z2 = self.output(a1)
@@ -40,9 +54,9 @@ class NeuralNetwork_2(nn.Module):
     def __init__(self, num_input=4, num_hidden_1=8, num_hidden_2=8) -> None:
         super(NeuralNetwork_2, self).__init__()
         self.layer_1 = nn.Linear(num_input, num_hidden_1)
-        self.activation_1 = nn.LeakyReLU()
+        self.activation_1 = nn.ReLU()
         self.layer_2 = nn.Linear(num_hidden_1, num_hidden_2)
-        self.activation_2 = nn.LeakyReLU()
+        self.activation_2 = nn.ReLU()
         self.output = nn.Linear(num_hidden_2, 1)
 
         # For tracking metrics like loss, accuracy, etc for each phase
@@ -57,6 +71,8 @@ class NeuralNetwork_2(nn.Module):
     
     def forward(self, x):
         # Defining forward pass for the NN
+        # Can be done in a line with torch.nn.Sequential
+        # Done this way for readability
         z1 = self.layer_1(x)
         a1 = self.activation_1(z1)
         z2 = self.layer_2(a1)
